@@ -13,7 +13,7 @@ const NavBar = () => {
         background-color: grey;
         color: white;
         display: flex;
-        justify-content: ${isreview ? 'space-between' : 'center'};
+        justify-content: center;
         align-items: center;
         box-sizing: border-box;
         padding: 0 15px;
@@ -22,16 +22,18 @@ const NavBar = () => {
             text-decoration: none;
             color: white;
             cursor: pointer;
+            position: absolute;
+            left:20px;
         }
     `
-    const NewBtn = styled(Link)`
+    const NavBtn = styled(Link)`
         position: absolute;
         text-decoration: none;
-        background-color: #ffffff;
-        color: #2b2b2b;
+        background-color:${({isDelete}) => isDelete ? '#d00000' : '#9E00F5'};
+        color: #ffffff;
         right:20px;
-        padding: 10px 15px 12px 15px;
-        font-size:1.2em;
+        padding: 8px 15px 10px 15px;
+        font-size:1em;
         font-weight: 700;
         cursor: pointer;
     `
@@ -42,13 +44,13 @@ const NavBar = () => {
         {
             isreview ?
                 <>
-                    <Link to={"/"} className='navLink'>Back</Link>
-                    <div className='navLink'>Delete</div>
+                    <Link to={"/"} className='navLink'> {"<"} Back</Link>
+                    <h3>REVIEW</h3>
                 </>
             :
                 <>
                     <h3>FILM LOG</h3>
-                    <NewBtn to={"/review?create"}>New +</NewBtn>
+                    <NavBtn to={"/review?create"}>New +</NavBtn>
                 </>
         }
     </StyledNav>

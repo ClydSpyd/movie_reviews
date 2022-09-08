@@ -21,6 +21,17 @@ const CreateReviewContainer = styled.div`
       sans-serif;
   }
 `
+const EditBtn = styled.div`
+    background-color:  ${({disabled}) => disabled ? '#cacaca' : ' #9E00F5'};;
+    pointer-events: ${({disabled}) => disabled ? 'none' : 'all'};
+    opacity: ${({disabled}) => disabled ? '0.7' : '1'};
+    color: #ffffff;
+    right:20px;
+    padding: 5px 10px;
+    font-size:1em;
+    text-align:center;
+    cursor: pointer;
+`
 
 const CreateReview = () => {
   const [ reviewData, setReviewData ] = useState({reviewText:"", movieData:null})
@@ -65,7 +76,7 @@ const CreateReview = () => {
       />
       <h3>Review text:</h3>
       <textarea onChange={e=>setReviewData({...reviewData, reviewText: e.target.value})} />
-      <button onClick={addReview}>Let's GO!</button>
+      <EditBtn disabled={reviewData.reviewText===""||!reviewData.movieData} onClick={addReview}>Let's GO!</EditBtn>
     </CreateReviewContainer>
   );
 };
