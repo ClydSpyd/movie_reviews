@@ -1,6 +1,7 @@
 Movie reviews 2022, Dave Clydesdale
 
+`    npm install
 `
-    npm install
-    npm run
+
+`    npm run
 `
